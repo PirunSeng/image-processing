@@ -30,15 +30,3 @@ for i = 1:rows
 end
 img = uint8(img);
 end
-
-% test the function
-% w = [1/9, 1/9, 1/9; 1/9, 1/9, 1/9; 1/9, 1/9, 1/9];
-% breast = imread('image/breast.png');
-% filteredImg = myimfilter(breast, w);
-% figure
-% subplot(1,2,1);
-% imshow(breast);
-% title("Original Img");
-% subplot(1,2,2);
-% imshow(filteredImg);
-% title("Filtered Img");

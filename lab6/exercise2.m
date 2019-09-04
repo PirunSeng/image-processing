@@ -14,16 +14,14 @@ gaussianImg = imnoise(cameraman, 'gaussian', m, v);
 saltPepperImg = imnoise(cameraman, 'salt & pepper', d);
 % filter kernel 3x3
 w = [1/16, 2/16, 1/16; 2/16, 4/16, 1/16; 1/16, 2/16, 1/16];
-% Median filter, by rotate w 180 degree
-ww = rot90(w, 2);
 
 % test Mean filter
 meanFiltered = myimfilter(saltPepperImg, w);
 meanFiltered2 = myimfilter(gaussianImg, w);
 
 % test Median filter
-medianFiltered = myimfilter(saltPepperImg, ww);
-medianFiltered2 = myimfilter(gaussianImg, ww);
+medianFiltered = mymedianfilter(saltPepperImg, 3);
+medianFiltered2 = mymedianfilter(gaussianImg, 3);
 %{
 figure('Name', 'Mean Filter on Salt & Pepper Noise Image');
 subplot(1,3,1);
@@ -117,4 +115,3 @@ imshow(fourtyOneByFourtyOneFiltered2);
 title('41x41');
 
 end
-
